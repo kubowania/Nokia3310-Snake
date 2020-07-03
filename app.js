@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //assign functions to keycodes
   function control(e) {
-    squares[currentIndex].classList.remove('snake') //we are removing the class of snake from ALL the squares.
+    squares[currentIndex].classList.remove('snake')
 
     if(e.keyCode === 39) {
       direction = 1 //if we press the right arrow on our keyboard, the snake will go right one
