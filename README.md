@@ -1,7 +1,7 @@
 # Nokia3310-Snake
 A vanilla JavaScript game with tutorial
 
-For the full walkthrough to coding the game, please visit [here](https://www.youtube.com/watch?v=GWPGz9hrVMk)
+For the full walkthrough to coding the game, please visit [here](https://www.youtube.com/watch?v=rui2tRRVtc0)
 
 I have kept the styling at a bare miniumum for you to go wild and make it your own. Please tag me as I would LOVE to see your game!!!
 
