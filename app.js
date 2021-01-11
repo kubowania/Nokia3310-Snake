@@ -3,16 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreDisplay = document.querySelector('span')
   const startBtn = document.querySelector('.start')
 
+  const stop  = document.querySelector('.stop') ; 
   const width = 10
   let currentIndex = 0 //so first div in our grid
   let appleIndex = 0 //so first div in our grid
   let currentSnake = [2,1,0] 
-  let direction = 1
+  let direction = 1 
   let score = 0
   let speed = 0.9
   let intervalTime = 0
   let interval = 0
-
+  let stopped ; 
 
   //to start, and restart the game
   function startGame() {
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearInterval(interval)
     score = 0
     randomApple()
+    stop.disabled = false ;
     direction = 1
     scoreDisplay.innerText = score
     intervalTime = 1000
@@ -29,7 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
     currentSnake.forEach(index => squares[index].classList.add('snake'))
     interval = setInterval(moveOutcomes, intervalTime)
   }
+  //to stop the game 
+  stop.addEventListener('click', ()=>{
+    if(stopped){
+      stop.textContent = 'Stop' ; 
+      stopped = false ;
+      interval = setInterval(moveOutcomes , intervalTime) ; 
+       
+    }else{
+      stop.textContent = 'Restart'; 
+      stopped = true; 
+      console.log('Stopped') ; 
+      clearInterval(interval) ; 
+     
+    }
 
+  })
 
   //function that deals with ALL the ove outcomes of the Snake
   function moveOutcomes() {
