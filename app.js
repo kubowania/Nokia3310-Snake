@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[appleIndex].classList.remove('apple')
     clearInterval(interval)
     score = 0
-    randomApple()
     direction = 1
     scoreDisplay.innerText = score
     intervalTime = 1000
@@ -28,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentIndex = 0
     currentSnake.forEach(index => squares[index].classList.add('snake'))
     interval = setInterval(moveOutcomes, intervalTime)
+    randomApple()
   }
 
 
