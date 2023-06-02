@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let speed = 0.9
   let intervalTime = 0
   let interval = 0
+  let prevAppleIndex = -1;
 
 
   //to start, and restart the game
@@ -49,7 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[tail].classList.remove('snake')  //removes class of snake from the TAIL
     currentSnake.unshift(currentSnake[0] + direction) //gives direction to the head of the array
 
-    //deals with snake getting apple
+    snakeGetsApple(tail);
+
+    squares[currentSnake[0]].classList.add('snake')
+  }
+
+  //deals with snake getting apple
+  function snakeGetsApple(tail){
     if(squares[currentSnake[0]].classList.contains('apple')) {
       squares[currentSnake[0]].classList.remove('apple')
       squares[tail].classList.add('snake')
@@ -61,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
       intervalTime = intervalTime * speed
       interval = setInterval(moveOutcomes, intervalTime)
     }
-    squares[currentSnake[0]].classList.add('snake')
   }
 
 
@@ -69,8 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function randomApple() {
     do{
       appleIndex = Math.floor(Math.random() * squares.length)
-    } while(squares[appleIndex].classList.contains('snake')) //making sure apples dont appear on the snake
+    } while(squares[appleIndex].classList.contains('snake') || appleIndex === prevAppleIndex ) //making sure apples dont appear on the snake
     squares[appleIndex].classList.add('apple')
+    prevAppleIndex = appleIndex
   }
 
 
